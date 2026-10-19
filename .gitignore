@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+
+# Dados brutos (não versionar binários)
+data/real/
+data/sinteticos/
+
+# Experimentos: checkpoints fora do git; logs/métricas versionados
+runs/**/checkpoints/
+*.pt
+*.pth
+
+# Vídeos
+*.mp4
+*.avi
+*.mkv
+
+# Editor / OS
+*.swp
+*.kate-swp
+*~
+.DS_Store
