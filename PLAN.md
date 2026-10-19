@@ -17,8 +17,10 @@
 3. **Dados**: dataset real do usuário em **2 formatos** — (a) imagens + bbox por frame
    (estilo OTB/VOT) e (b) vídeo + CSV/JSON próprio. Dataset público (GOT-10k/LaSOT)
    = task futura opcional.
-4. **Infra**: GPU local NVIDIA; repositório já ligado ao GitHub (`LASS002/rede_zero`),
-   push contínuo após cada task.
+4. **Infra**: GPU local NVIDIA (RTX 2060 confirmada); repositório já ligado ao GitHub
+   (`LASS002/rede_zero`), push contínuo após cada task.
+5. **Gerenciador de pacotes**: `uv` (decidido pelo humano em 2026-10-19 durante DIR-03).
+   Dependências em `pyproject.toml`; lockfile `uv.lock` versionado; comandos via `uv run`.
 
 ## 2. Convenções
 
@@ -180,7 +182,7 @@ Contrato definido em SCR-05/08; implementação e treino adiados.
 |---|---|---|---|
 | DIR-01 | T1 | — | `HISTORY.md` inicial + `docs/historico_formato.md` + `.gitignore` |
 | DIR-02 | T1 | DIR-01 | esqueleto de pastas + `__init__.py` + READMEs de 1 linha |
-| DIR-03 | T1 | DIR-02 | `requirements.txt`/`pyproject.toml` |
+| DIR-03 | T1 | DIR-02 | `pyproject.toml` + `uv.lock` (gerenciador: **uv**) |
 | DIR-04 | T1 | DIR-02 | layout de `data/` + `data/README.md` com os 2 schemas |
 | DIR-05 | T1 | DIR-02 | `configs/base.yaml` + yamls dos 3 paradigmas |
 | DIR-06 | T1 | DIR-02 | política de `runs/` (ckpts fora do git, logs versionados) |
@@ -196,10 +198,11 @@ Passos: `mkdir -p` da árvore da §4 (sem arquivos de lógica); tocar `__init__.
 README de 1 linha em `docs/`, `data/`, `runs/`. Verificação: `python -c "import rede_zero"`
 com `PYTHONPATH=src` (ou configuração equivalente no pyproject).
 
-**DIR-03** — *Dependências.*
-Passos: `torch`, `torchvision` (só transforms), `opencv-python`, `numpy`, `pyyaml`,
-`pytest`; extras dev: `pytest`. Verificação: `pip install -r requirements.txt` +
-`python -c "import torch; print(torch.cuda.is_available())"`.
+**DIR-03** — *Dependências (uv).* Ajustado em 2026-10-19: sem `requirements.txt`;
+usar `pyproject.toml` (PEP 621) + `[dependency-groups] dev` + `uv.lock`.
+Passos: `torch`, `torchvision`, `opencv-python`, `numpy`, `pyyaml`; dev: `pytest`.
+Verificação: `uv sync` +
+`uv run python -c "import torch; print(torch.cuda.is_available())"`.
 
 **DIR-04** — *Layout de dados.*
 Passos: pastas `data/real/formato-a/`, `data/real/formato-b/`, `data/inventario/`,
@@ -384,3 +387,14 @@ RUN-01/02 → RUN-03 → RUN-04/05 → RUN-06 (T3) → RUN-07/08
 - **Agente**: siga §3 (retomada). Nunca invente tasks fora deste arquivo; se surgir
   algo novo, registre em `HISTORY.md` e proponha task nova ao humano antes de executar.
 - **Versionamento**: um commit por task, mensagem `[ID] …`; push após cada commit.
+
+## 9. Quadro de status
+
+| ID | Status | Data (UTC) | Agente | Obs |
+|---|---|---|---|---|
+| DIR-01 | ✅ | 2026-10-19 | opencode/big-pickle | HISTORY.md, formato e .gitignore criados |
+| DIR-02 | ✅ | 2026-10-19 | opencode/big-pickle | esqueleto `src/`, `scripts/`, `configs/`, `data/`, `runs/`, `tests/`, `docs/` |
+| DIR-03 | ✅ | 2026-10-19 | opencode/big-pickle | uv; torch 2.14.1+cu130, CUDA OK (RTX 2060) |
+| DIR-04 | 🔶 | 2026-10-19 | opencode/big-pickle | layout criado; aguardando info do humano (schemas reais, paths, colunas) |
+| DOC-01 | ⬜ | — | — | README base pendente (estrutura mínima já no README) |
+| (demais) | ⬜ | — | — | ver §6 |

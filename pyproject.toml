@@ -1,0 +1,19 @@
+[project]
+name = "rede-zero"
+version = "0.1.0"
+description = "Rede neural do zero para rastreamento de objetos (até 8, sem sobreposição)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "torch",
+    "torchvision",
+    "numpy",
+    "opencv-python",
+    "pyyaml",
+]
+
+[dependency-groups]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
