@@ -92,10 +92,10 @@ def listar_paradigmas() -> tuple[str, ...]:
     return tuple(_REGISTRY)
 
 
-def _detector_pendente(**_: Any) -> ParadigmaBase:
-    raise NotImplementedError(
-        "O paradigma 'detector' está pendente; sua implementação é a SCR-18."
-    )
+def _fabrica_detector(**kwargs: Any) -> ParadigmaBase:
+    from rede_zero.paradigmas.detector import fabrica_detector
+
+    return fabrica_detector(**kwargs)
 
 
 def _fabrica_siamese(**kwargs: Any) -> ParadigmaBase:
@@ -112,4 +112,4 @@ def _fabrica_regressao(**kwargs: Any) -> ParadigmaBase:
 
 registrar_paradigma("siamese", _fabrica_siamese)
 registrar_paradigma("regressao", _fabrica_regressao)
-registrar_paradigma("detector", _detector_pendente)
+registrar_paradigma("detector", _fabrica_detector)

@@ -100,3 +100,9 @@ Formato: [docs/historico_formato.md](docs/historico_formato.md). Entradas em ord
 
 
 
+
+## [SCR-08] 2026-10-20T15:05Z
+- Agente: opencode/big-pickle | Humano: none
+- Ação: stub do 3º paradigma — `detector/__init__.py` com docstring do contrato, classe `Detector` (placeholder) e `fabrica_detector` que lança `NotImplementedError`; `detector/README.md` com instruções de ativação; `base.py` agora delega o registro do detector ao módulo dele
+- Resultado: pytest 30/30; `get_paradigma('detector')` e métodos de `Detector` apontam SCR-18; config `detector.yaml` já existia (DIR-05)
+- Próxima: SCR-04, SCR-11 ou DIR-07 pendente de SCR-14/15/16
