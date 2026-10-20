@@ -73,4 +73,10 @@ Formato: [docs/historico_formato.md](docs/historico_formato.md). Entradas em ord
 - Resultado: `TrackingDataset` implementado e testado; verificação de shapes via batch DataLoader aprovada; testes em `tests/test_dataset_treino.py` passando (7/7 no total)
 - Próxima: SCR-04 (ou SCR-06/SCR-07)
 
+## [SCR-06] 2026-10-20T14:06Z
+- Agente: codex/gpt-5 | Humano: none
+- Ação: implementar modelo Siamese com backbone compartilhado, correlação depthwise e ramo de offset
+- Resultado: factory instancia `ModeloSiamese`; forward de batch 2 produz `score_map (2, 1, 9, 9)` e `offset (2, 2)`
+- Próxima: SCR-07
+
 

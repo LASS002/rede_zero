@@ -403,5 +403,6 @@ RUN-01/02 → RUN-03 → RUN-04/05 → RUN-06 (T3) → RUN-07/08
 | SCR-02 | ✅ | 2026-10-20 | antigravity/gemini-3.8-flash | `data/inventario.py`, `scripts/inventario_dataset.py`, testes e relatório |
 | SCR-03 | ✅ | 2026-10-20 | antigravity/gemini-3.8-flash | `data/dataset_treino.py` (amostragem para Siamese e Regressão + augment) |
 | SCR-05 | ✅ | 2026-10-20 | codex/gpt-5 | contrato `ParadigmaBase`, registry e documentação dos três paradigmas |
+| SCR-06 | ✅ | 2026-10-20 | codex/gpt-5 | modelo Siamese: backbone compartilhado, correlação depthwise e offset |
 | DOC-01 | ⬜ | — | — | README base pendente (estrutura mínima já no README) |
 | (demais) | ⬜ | — | — | ver §6 |
