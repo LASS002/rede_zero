@@ -144,3 +144,10 @@ Formato: [docs/historico_formato.md](docs/historico_formato.md). Entradas em ord
 - Resultado: dry-run OK em CUDA com 12 readers (siamese e override de paradigma/epochs); pytest 40/40
 - Nota: SCR-13 em andamento por agente paralelo (avaliar.py etc.) — stage seletivo apenas de scripts/treinar.py, configs/base.yaml, PLAN.md, HISTORY.md
 - Próxima: SCR-16, DOC-01 ou RUN-03
+
+## [SCR-13] 2026-10-20T18:30Z
+- Agente: antigravity/gemini-3.8-flash | Humano: none
+- Ação: implementar CLI `scripts/avaliar.py` e rotinas de avaliação em `src/rede_zero/treino/avaliador.py` com cálculo de métricas (IoU médio, AUC de success, precisão a 20px) e exportação em JSON e CSV
+- Resultado: carregamento de checkpoints, suporte a leitores OTB e VideoReader com detecção automática de ground-truth; exportação validada em vídeo sintético; 3 testes unitários adicionados em `tests/test_avaliar.py` passando (40/40 no total)
+- Próxima: SCR-16 ou DOC-01
+
