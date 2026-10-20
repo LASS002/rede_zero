@@ -124,3 +124,10 @@ Formato: [docs/historico_formato.md](docs/historico_formato.md). Entradas em ord
 - Ação: testar o pipeline com leitor de dois frames e modelo fake de ROI fixa
 - Resultado: ROI final, crop de Regressão e ausência de perdas validados; `pytest tests/test_pipeline.py` passa
 - Próxima: SCR-16 ou DIR-07 após SCR-16
+
+## [SCR-11] 2026-10-20T17:28Z
+- Agente: antigravity/gemini-3.8-flash | Humano: none
+- Ação: implementar `Treinador` em `src/rede_zero/treino/trainer.py` (loop por config, AdamW, AMP compatível, checkpointing last/best, resume e logs em CSV)
+- Resultado: suporte a herança de configs com `_base_`; salvamento e carregamento de checkpoints (`last.pt`, `best.pt`); logging em `train_log.csv`; 3 testes unitários adicionados em `tests/test_trainer.py` passando (37/37 no total)
+- Próxima: SCR-12 ou SCR-13
+
