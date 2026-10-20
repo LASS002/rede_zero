@@ -91,5 +91,12 @@ Formato: [docs/historico_formato.md](docs/historico_formato.md). Entradas em ord
 - Resultado: BCE+L1 Siamese, smooth-L1+BCE Regressão, IoU, curvas success/precision e resumo; 14 testes passam
 - Próxima: SCR-11
 
+## [SCR-09] 2026-10-20T14:25Z
+- Agente: antigravity/gemini-3.8-flash | Humano: none
+- Ação: criar testes de registry (`tests/test_paradigma_registry.py`) e testes de forward com validação de shapes e independência de até 8 objetos (`tests/test_forward.py`)
+- Resultado: 16 novos testes implementados cobrindo factory, case insensitivity, exceção do detector, shapes paramétricos (batch 1, 2, 4, 8) e independência estrita sem contaminação de estado para Siamese e Regressão; total de 30/30 testes passando no pytest
+- Próxima: SCR-11
+
+
 
 
