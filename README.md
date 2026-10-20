@@ -17,3 +17,6 @@ configs/         # YAML por paradigma · data/ (brutos, gitignore) · runs/ (ckp
 - Gerenciador de pacotes: **uv** → `uv sync` e `uv run python ...` / `uv run pytest`.
 - Separação de execução: a rede neural fica em `paradigmas/`; a inferência é script
   separado (`scripts/inferir.py`) que importa a rede, nunca o código de treino.
+- Paradigmas: o registry `rede_zero.paradigmas.get_paradigma()` já define os contratos
+  `siamese`, `regressao` e `detector`; os dois primeiros receberão as redes nas SCR-06/07
+  e o detector permanece pendente. Consulte `docs/paradigmas.md`.

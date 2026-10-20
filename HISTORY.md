@@ -33,3 +33,9 @@ Formato: [docs/historico_formato.md](docs/historico_formato.md). Entradas em ord
 - Ação: criar `configs/base.yaml` (seed, device, imagens 128/256, treino, inferência) + `siamese.yaml` e `regressao.yaml` herdados via `_base_: base.yaml` + `detector.yaml` com `status: pendente`
 - Resultado: 4 YAMLs parseados com `yaml.safe_load` OK; loader de herança fica a cargo de SCR-11
 - Próxima: DIR-06, DOC-01 ou SCR-01 (independentes)
+
+## [SCR-05] 2026-10-20T13:25Z
+- Agente: codex/gpt-5 | Humano: none
+- Ação: definir `ParadigmaBase`, factory/registry e contrato dos três paradigmas
+- Resultado: `siamese` e `regressao` instanciam placeholders de contrato; `detector` lança `NotImplementedError` até SCR-18; documentação criada em `docs/paradigmas.md`
+- Próxima: SCR-06 ou SCR-07
