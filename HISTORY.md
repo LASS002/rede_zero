@@ -38,6 +38,7 @@ Formato: [docs/historico_formato.md](docs/historico_formato.md). Entradas em ord
 - Agente: opencode/big-pickle | Humano: none
 - Ação: expandir `runs/README.md` com estrutura por experimento e política de versionamento (ckpts/métricas/vídeos)
 - Resultado: `git check-ignore` validado — `runs/**/checkpoints/` e `*.mp4` ignorados, `metrics.yaml` versionado; planilha §9 atualizada
+- Nota: commit `951cf1d` [DIR-06] também continha os arquivos da SCR-01 deixados no working tree pelo agente paralelo (ver "Nota de commits" abaixo)
 - Próxima: DOC-01 ou SCR-01 (independentes); DIR-07 bloqueada até SCR-14/15/16
 
 ## [SCR-01] 2026-10-20T13:25Z
@@ -51,3 +52,11 @@ Formato: [docs/historico_formato.md](docs/historico_formato.md). Entradas em ord
 - Ação: definir `ParadigmaBase`, factory/registry e contrato dos três paradigmas
 - Resultado: `siamese` e `regressao` instanciam placeholders de contrato; `detector` lança `NotImplementedError` até SCR-18; documentação criada em `docs/paradigmas.md`
 - Próxima: SCR-06 ou SCR-07
+
+## [NOTA] 2026-10-20T13:45Z — desalinhamento de commits (paralelismo)
+- Agente: opencode/big-pickle | Humano: none
+- Ação: auditoria após trabalho paralelo de antigravity/gemini-3.8-flash (SCR-01) e codex/gpt-5 (SCR-05)
+- Resultado: conteúdo no repo está correto (pytest 4/4; registry OK), porém labels de commit trocados:
+  `7648a09 [SCR-01]` contém arquivos da SCR-05; arquivos da SCR-01 entraram no `951cf1d [DIR-06]`.
+  Histórico NÃO reescrito (regra de não amend/push-forçado); auditoria de tasks deve usar §9 + entradas acima, não mensagens de commit.
+- Próxima: DOC-01 ou SCR-02
