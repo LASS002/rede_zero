@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 from collections.abc import Callable, Mapping
-from typing import Any
+from typing import Any, NoReturn
 
 import numpy as np
 import torch
@@ -21,19 +21,19 @@ class ParadigmaBase(nn.Module, ABC):
 
     @abstractmethod
     def forward(self, treino_batch: Mapping[str, Tensor]) -> Mapping[str, Tensor]:
-        """Executa o forward de um lote já preparado para treinamento."""
+        """Executa o forward de um lote preparado para treinamento."""
 
     @abstractmethod
     def prever_roi(
         self, patch: np.ndarray | Tensor, contexto: Mapping[str, Any]
     ) -> BBox:
-        """Prevê a próxima ROI para um único objeto independente."""
+        """Prevê a próxima ROI de um único objeto independente."""
 
     @abstractmethod
     def perda_fn(
         self, saidas: Mapping[str, Tensor], alvos: Mapping[str, Tensor]
     ) -> Tensor:
-        """Calcula a perda do paradigma para saídas e alvos do lote."""
+        """Calcula a perda para as saídas e alvos do lote."""
 
 
 class _ParadigmaContrato(ParadigmaBase):
@@ -44,24 +44,23 @@ class _ParadigmaContrato(ParadigmaBase):
         self.nome = nome
         self.versao = "0.0.0"
 
-    def forward(self, treino_batch: Mapping[str, Tensor]) -> Mapping[str, Tensor]:
+    def _pendente(self, componente: str) -> NoReturn:
         raise NotImplementedError(
-            f"O modelo do paradigma '{self.nome}' ainda não foi implementado."
+            f"O {componente} do paradigma '{self.nome}' ainda não foi implementado."
         )
+
+    def forward(self, treino_batch: Mapping[str, Tensor]) -> Mapping[str, Tensor]:
+        self._pendente("modelo")
 
     def prever_roi(
         self, patch: np.ndarray | Tensor, contexto: Mapping[str, Any]
     ) -> BBox:
-        raise NotImplementedError(
-            f"O modelo do paradigma '{self.nome}' ainda não foi implementado."
-        )
+        self._pendente("modelo")
 
     def perda_fn(
         self, saidas: Mapping[str, Tensor], alvos: Mapping[str, Tensor]
     ) -> Tensor:
-        raise NotImplementedError(
-            f"A perda do paradigma '{self.nome}' ainda não foi implementada."
-        )
+        self._pendente("perda")
 
 
 FabricaParadigma = Callable[..., ParadigmaBase]
@@ -69,7 +68,6 @@ _REGISTRY: dict[str, FabricaParadigma] = {}
 
 
 def registrar_paradigma(nome: str, fabrica: FabricaParadigma) -> None:
-    """Registra uma fábrica sob um nome único normalizado."""
     nome_normalizado = nome.strip().lower()
     if not nome_normalizado:
         raise ValueError("O nome do paradigma não pode ser vazio.")
@@ -79,7 +77,6 @@ def registrar_paradigma(nome: str, fabrica: FabricaParadigma) -> None:
 
 
 def get_paradigma(nome: str, **kwargs: Any) -> ParadigmaBase:
-    """Instancia um paradigma registrado pelo seu nome."""
     nome_normalizado = nome.strip().lower()
     try:
         fabrica = _REGISTRY[nome_normalizado]
@@ -92,7 +89,6 @@ def get_paradigma(nome: str, **kwargs: Any) -> ParadigmaBase:
 
 
 def listar_paradigmas() -> tuple[str, ...]:
-    """Retorna os nomes de todos os paradigmas registrados, em ordem estável."""
     return tuple(_REGISTRY)
 
 
