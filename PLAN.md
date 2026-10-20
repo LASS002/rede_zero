@@ -400,6 +400,7 @@ RUN-01/02 → RUN-03 → RUN-04/05 → RUN-06 (T3) → RUN-07/08
 | DIR-05 | ✅ | 2026-10-19 | opencode/big-pickle | `configs/{base,siamese,regressao,detector}.yaml` com herança `_base_`; detector `status: pendente` |
 | DIR-06 | ✅ | 2026-10-19 | opencode/big-pickle | política de `runs/` em `runs/README.md`; `git check-ignore` validado |
 | SCR-01 | ✅ | 2026-10-20 | antigravity/gemini-3.8-flash | `ReaderBase`, `BBox`, `OTBReader`, `VideoReader` e testes unitários |
+| SCR-02 | ✅ | 2026-10-20 | antigravity/gemini-3.8-flash | `data/inventario.py`, `scripts/inventario_dataset.py`, testes e relatório |
 | SCR-05 | ✅ | 2026-10-20 | codex/gpt-5 | contrato `ParadigmaBase`, registry e documentação dos três paradigmas |
 | DOC-01 | ⬜ | — | — | README base pendente (estrutura mínima já no README) |
 | (demais) | ⬜ | — | — | ver §6 |

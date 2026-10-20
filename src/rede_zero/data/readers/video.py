@@ -1,6 +1,7 @@
 """Leitor de arquivos de vídeo com anotações de tracking (CSV / Formato-B)."""
 
 import csv
+import math
 from pathlib import Path
 from typing import Dict, List, Optional
 import cv2
@@ -56,7 +57,9 @@ class VideoReader(ReaderBase):
                         ymin = float(row[col_map["Y_min"]])
                         xmax = float(row[col_map["X_max"]])
                         ymax = float(row[col_map["Y_max"]])
-                        conf = float(row[col_map["Confidence"]]) if "Confidence" in col_map else 1.0
+                        if any(math.isnan(v) for v in (xmin, ymin, xmax, ymax)):
+                            continue
+                        conf = float(row[col_map["Confidence"]]) if "Confidence" in col_map and not math.isnan(float(row[col_map["Confidence"]])) else 1.0
                         label = row[col_map["Label"]] if "Label" in col_map else "object"
                         bbox = BBox(
                             x=xmin,

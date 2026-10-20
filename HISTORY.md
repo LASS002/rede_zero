@@ -60,3 +60,10 @@ Formato: [docs/historico_formato.md](docs/historico_formato.md). Entradas em ord
   `7648a09 [SCR-01]` contém arquivos da SCR-05; arquivos da SCR-01 entraram no `951cf1d [DIR-06]`.
   Histórico NÃO reescrito (regra de não amend/push-forçado); auditoria de tasks deve usar §9 + entradas acima, não mensagens de commit.
 - Próxima: DOC-01 ou SCR-02
+
+## [SCR-02] 2026-10-20T13:35Z
+- Agente: antigravity/gemini-3.8-flash | Humano: none
+- Ação: criar módulo de inventário `src/rede_zero/data/inventario.py`, CLI `scripts/inventario_dataset.py`, testes unitários e relatório
+- Resultado: varredura em `data/raw` identificou 12 sequências, 10.885 frames, 133.256 bboxes (tamanho médio 9.6x8.9 px) e 0 anomalias; relatório salvo em `data/inventario/relatorio.md`; testes em `tests/test_inventario.py` passando (5/5 no total)
+- Próxima: SCR-03
+
