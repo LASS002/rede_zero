@@ -413,5 +413,6 @@ RUN-01/02 → RUN-03 → RUN-04/05 → RUN-06 (T3) → RUN-07/08
 | SCR-09 | ✅ | 2026-10-20 | antigravity/gemini-3.8-flash | testes da rede: registry, shapes e independência de até 8 objetos |
 | SCR-10 | ✅ | 2026-10-20 | codex/gpt-5 | perdas Siamese/Regressão e métricas IoU, success e precision |
 | SCR-11 | ✅ | 2026-10-20 | antigravity/gemini-3.8-flash | trainer: loop de treino, AdamW, AMP, checkpointing (last/best), resume e logs CSV |
+| SCR-12 | ✅ | 2026-10-20 | opencode/big-pickle | CLI `scripts/treinar.py` (--config/--resume/--paradigma/--epochs/--dry-run); dry-run 12 readers em CUDA |
 | DOC-01 | ⬜ | — | — | README base pendente (estrutura mínima já no README) |
 | (demais) | ⬜ | — | — | ver §6 |

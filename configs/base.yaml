@@ -13,7 +13,7 @@ imagens:              # formas do PLAN.md §5
   patch: 128          # ROI expandida x2 (Regressão)
 
 dados:
-  raiz: data/real             # ponteiros/leitores; dados brutos fora do repo
+  raiz: /home/labiocom01/Documents/yolo_cfc_retrain/data/raw   # fora do repo (ver data/README.md)
   inventario: data/inventario/relatorio.md
   max_objetos: 8              # sem sobreposição (pré-requisito do plano)
   valid_frac: 0.2             # fração de sequências para validação

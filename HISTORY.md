@@ -137,3 +137,10 @@ Formato: [docs/historico_formato.md](docs/historico_formato.md). Entradas em ord
 - Resultado: módulo `data/sintetico.py` e CLI `scripts/gerar_sinteticos.py`; MP4 e CSV com IDs estáveis, fundo verde sombreado e objetos multicoloridos arredondados/estrelados; máximo de 8 objetos e 90 frames
 - Próxima: RUN-02
 
+
+## [SCR-12] 2026-10-20T15:45Z
+- Agente: opencode/big-pickle | Humano: none
+- Ação: criar `scripts/treinar.py` — CLI com `--config`, `--resume`, `--paradigma`, `--epochs`, `--num-amostras`, `--dry-run`; monta readers (Forma-A OTB + Forma-B vídeo+CSV), `TrackingDataset` e `DataLoader`, delega ao `Treinador` (SCR-11). Ajuste: `configs/base.yaml` `dados.raiz` agora aponta o path real do dataset (fora do repo, conforme data/README.md)
+- Resultado: dry-run OK em CUDA com 12 readers (siamese e override de paradigma/epochs); pytest 40/40
+- Nota: SCR-13 em andamento por agente paralelo (avaliar.py etc.) — stage seletivo apenas de scripts/treinar.py, configs/base.yaml, PLAN.md, HISTORY.md
+- Próxima: SCR-16, DOC-01 ou RUN-03
