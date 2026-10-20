@@ -17,6 +17,8 @@ configs/         # YAML por paradigma · data/ (brutos, gitignore) · runs/ (ckp
 - Gerenciador de pacotes: **uv** → `uv sync` e `uv run python ...` / `uv run pytest`.
 - Separação de execução: a rede neural fica em `paradigmas/`; a inferência é script
   separado (`scripts/inferir.py`) que importa a rede, nunca o código de treino.
+- Pipeline: `rede_zero.inferencia.executar_pipeline()` rastreia até oito ROIs de forma
+  independente, sem GUI, e registra objetos removidos por baixa confiança.
 - Paradigmas: o registry `rede_zero.paradigmas.get_paradigma()` já define os contratos
   `siamese`, `regressao` e `detector`; Siamese já possui backbone, correlação e offset,
   Regressão já possui backbone e MLP, e o detector permanece pendente. Perdas e métricas

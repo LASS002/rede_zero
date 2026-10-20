@@ -112,3 +112,9 @@ Formato: [docs/historico_formato.md](docs/historico_formato.md). Entradas em ord
 - Ação: criar `src/rede_zero/inferencia/selecao_roi.py` — `selecionar_rois(video, max_objetos=8)` com `cv2.selectROI` no frame 0, devolve `list[BBox]` com ids 0..n-1; testes com GUI simulada (`tests/test_selecao_roi.py`)
 - Resultado: pytest 3/3 novos, 33/33 total; smoke manual com display fica pendente de humano (sem X nesta sessão). Nota: SCR-14 em andamento por agente paralelo (pipeline.py não commitado) — stage seletivo feito apenas dos arquivos desta task
 - Próxima: SCR-16 (após SCR-14), SCR-04, SCR-11
+
+## [SCR-14] 2026-10-20T17:23Z
+- Agente: codex/gpt-5 | Humano: none
+- Ação: implementar pipeline de inferência multi-ROI sem GUI
+- Resultado: recortes Siamese/Regressão, até oito rastreios independentes, remoção por confiança e registro de perdas; smoke de dois frames e import sem `rede_zero.treino` aprovados
+- Próxima: SCR-16 ou SCR-17
