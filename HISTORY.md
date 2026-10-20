@@ -21,8 +21,9 @@ Formato: [docs/historico_formato.md](docs/historico_formato.md). Entradas em ord
 - Nota: push SSH falhou (`Permission denied (publickey)` — chave local não autorizada no GitHub); push feito via HTTPS com credencial do `gh`
 - Próxima: DIR-04
 
-## [DIR-04] 2026-10-19T20:30Z
-- Agente: opencode/big-pickle | Humano: none (resposta pendente)
-- Ação: layout `data/{real,inventario,sinteticos}` + README de 1 linha criados em DIR-02; schemas detalhados e integração do dataset real **pendentes**
-- Resultado: 🔶 em andamento — perguntas sobre o dataset real enviadas ao humano (paths, formato das anotações, colunas, nº de objetos)
-- Próxima: DIR-04 (retomar com respostas do humano)
+## [DIR-04] 2026-10-19T21:10Z
+- Agente: opencode/big-pickle | Humano: lennin — forneceu path do dataset e descritivo dos formatos
+- Ação: layout `data/{real,inventario,sinteticos}` + inspeção do dataset real em `/home/labiocom01/Documents/yolo_cfc_retrain/data/raw/` + schemas documentados em `data/README.md`
+- Resultado: Formato-A = frames+labels YOLO/txt+JSON (sem id de objeto, ~20 obj/frame, fonte part1.mp4/1511 frames); Formato-B = vídeo+CSV de tracking com Tracker ID (`object_id_<N>.csv`); PLAN.md §1.3 e §9 atualizados
+- Nota: remote do git migrado para HTTPS + `gh auth setup-git` (push normal voltou a funcionar)
+- Próxima: DIR-05 (ou DOC-01 / SCR conforme preferência do humano)

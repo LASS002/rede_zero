@@ -14,9 +14,10 @@
 2. **Paradigmas de rastreamento**: o usuário escolhe o paradigma **na inferência**
    (`--paradigma`). Fase 1: **Siamese** e **Regressão** prontos e treinados;
    **Detector + associação** = 3º paradigma plugável (tasks ⏸️ SCR-18/RUN-09).
-3. **Dados**: dataset real do usuário em **2 formatos** — (a) imagens + bbox por frame
-   (estilo OTB/VOT) e (b) vídeo + CSV/JSON próprio. Dataset público (GOT-10k/LaSOT)
-   = task futura opcional.
+3. **Dados**: dataset real do usuário em `/home/labiocom01/Documents/yolo_cfc_retrain/data/raw/`.
+   Formato-A = frames + labels YOLO/txt + JSON por frame (sem id de objeto);
+   Formato-B = vídeo + CSV de tracking **com Tracker ID** (detalhes em `data/README.md`,
+   revisados em DIR-04). Dataset público (GOT-10k/LaSOT) = task futura opcional.
 4. **Infra**: GPU local NVIDIA (RTX 2060 confirmada); repositório já ligado ao GitHub
    (`LASS002/rede_zero`), push contínuo após cada task.
 5. **Gerenciador de pacotes**: `uv` (decidido pelo humano em 2026-10-19 durante DIR-03).
@@ -395,6 +396,6 @@ RUN-01/02 → RUN-03 → RUN-04/05 → RUN-06 (T3) → RUN-07/08
 | DIR-01 | ✅ | 2026-10-19 | opencode/big-pickle | HISTORY.md, formato e .gitignore criados |
 | DIR-02 | ✅ | 2026-10-19 | opencode/big-pickle | esqueleto `src/`, `scripts/`, `configs/`, `data/`, `runs/`, `tests/`, `docs/` |
 | DIR-03 | ✅ | 2026-10-19 | opencode/big-pickle | uv; torch 2.14.1+cu130, CUDA OK (RTX 2060) |
-| DIR-04 | 🔶 | 2026-10-19 | opencode/big-pickle | layout criado; aguardando info do humano (schemas reais, paths, colunas) |
+| DIR-04 | ✅ | 2026-10-19 | opencode/big-pickle | schemas reais documentados em `data/README.md`; dataset fora do repo |
 | DOC-01 | ⬜ | — | — | README base pendente (estrutura mínima já no README) |
 | (demais) | ⬜ | — | — | ver §6 |
