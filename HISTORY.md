@@ -118,3 +118,9 @@ Formato: [docs/historico_formato.md](docs/historico_formato.md). Entradas em ord
 - Ação: implementar pipeline de inferência multi-ROI sem GUI
 - Resultado: recortes Siamese/Regressão, até oito rastreios independentes, remoção por confiança e registro de perdas; smoke de dois frames e import sem `rede_zero.treino` aprovados
 - Próxima: SCR-16 ou SCR-17
+
+## [SCR-17] 2026-10-20T17:26Z
+- Agente: codex/gpt-5 | Humano: none
+- Ação: testar o pipeline com leitor de dois frames e modelo fake de ROI fixa
+- Resultado: ROI final, crop de Regressão e ausência de perdas validados; `pytest tests/test_pipeline.py` passa
+- Próxima: SCR-16 ou DIR-07 após SCR-16

@@ -406,6 +406,7 @@ RUN-01/02 → RUN-03 → RUN-04/05 → RUN-06 (T3) → RUN-07/08
 | SCR-08 | ✅ | 2026-10-20 | opencode/big-pickle | stub `paradigmas/detector/` (docstring do contrato, classe `Detector`, factory pendente → SCR-18) |
 | SCR-15 | ✅ | 2026-10-20 | opencode/big-pickle | `inferencia/selecao_roi.py` (GUI OpenCV, ≤8 ROIs) + testes com GUI simulada |
 | SCR-14 | ✅ | 2026-10-20 | codex/gpt-5 | pipeline multi-ROI sem GUI, com crops por paradigma e registro de perda |
+| SCR-17 | ✅ | 2026-10-20 | codex/gpt-5 | teste do pipeline com modelo fake e leitor de dois frames |
 | SCR-06 | ✅ | 2026-10-20 | codex/gpt-5 | modelo Siamese: backbone compartilhado, correlação depthwise e offset |
 | SCR-07 | ✅ | 2026-10-20 | antigravity/gemini-3.8-flash | modelo Regressão: backbone 3 blocos conv, MLP head (dx,dy,sw,sh,conf) |
 | SCR-09 | ✅ | 2026-10-20 | antigravity/gemini-3.8-flash | testes da rede: registry, shapes e independência de até 8 objetos |
