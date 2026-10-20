@@ -85,5 +85,11 @@ Formato: [docs/historico_formato.md](docs/historico_formato.md). Entradas em ord
 - Resultado: `ModeloRegressao` implementado em `src/rede_zero/paradigmas/regressao/`; registrado na factory `get_paradigma("regressao")`; forward com batch 2 gerando predições `(2, 5)`; 4 testes unitários adicionados em `tests/test_regressao.py` passando (11/11 no total)
 - Próxima: SCR-08 ou SCR-09
 
+## [SCR-10] 2026-10-20T14:21Z
+- Agente: codex/gpt-5 | Humano: none
+- Ação: implementar perdas dos dois paradigmas e métricas de rastreamento por frame
+- Resultado: BCE+L1 Siamese, smooth-L1+BCE Regressão, IoU, curvas success/precision e resumo; 14 testes passam
+- Próxima: SCR-11
+
 
 

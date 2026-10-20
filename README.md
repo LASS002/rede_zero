@@ -19,5 +19,5 @@ configs/         # YAML por paradigma · data/ (brutos, gitignore) · runs/ (ckp
   separado (`scripts/inferir.py`) que importa a rede, nunca o código de treino.
 - Paradigmas: o registry `rede_zero.paradigmas.get_paradigma()` já define os contratos
   `siamese`, `regressao` e `detector`; Siamese já possui backbone, correlação e offset,
-  Regressão será implementada na SCR-07 e o detector permanece pendente. Consulte
-  `docs/paradigmas.md` e `docs/arquitetura.md`.
+  Regressão já possui backbone e MLP, e o detector permanece pendente. Perdas e métricas
+  de avaliação vivem em `treino/`. Consulte `docs/paradigmas.md` e `docs/arquitetura.md`.

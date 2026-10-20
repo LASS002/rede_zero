@@ -4,7 +4,6 @@ from typing import Any, Mapping
 import numpy as np
 import torch
 from torch import Tensor, nn
-import torch.nn.functional as F
 
 from rede_zero.data.readers.base import BBox
 from rede_zero.paradigmas.base import ParadigmaBase
@@ -66,9 +65,9 @@ class ModeloRegressao(ParadigmaBase):
         }
 
     def perda_fn(self, saidas: Mapping[str, Tensor], alvos: Mapping[str, Tensor]) -> Tensor:
-        perda_delta = F.smooth_l1_loss(saidas["delta"], alvos["alvo_regressao"])
-        perda_conf = F.binary_cross_entropy_with_logits(saidas["conf_logits"], alvos["confianca"])
-        return perda_delta + perda_conf
+        from rede_zero.treino.losses import perda_regressao
+
+        return perda_regressao(saidas, alvos)
 
     def prever_roi(self, patch: np.ndarray | Tensor, contexto: Mapping[str, Any]) -> BBox:
         self.eval()

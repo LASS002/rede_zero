@@ -9,15 +9,14 @@ sobreposição.
 ## Siamese
 
 Registry: `siamese`. Recebe template RGB `128x128` e busca RGB `256x256`. A SCR-06
-implementa backbone compartilhado, correlação depthwise, score map e offset. A perda será
-BCE com rótulo Gaussiano mais L1 na SCR-10; o modelo já usa soft-argmax para atualizar a
-ROI.
+implementa backbone compartilhado, correlação depthwise, score map e offset. A SCR-10
+combina BCE com rótulo Gaussiano e L1; o modelo usa soft-argmax para atualizar a ROI.
 
 ## Regressão
 
 Registry: `regressao`. Recebe patch RGB `128x128` da ROI expandida duas vezes. A SCR-07
-produzirá `(dx, dy, sw, sh, confianca)` e usará smooth-L1 mais BCE; baixa confiança marca
-o objeto como perdido.
+produz `(dx, dy, sw, sh, confianca)` e a SCR-10 usa smooth-L1 mais BCE; baixa confiança
+marca o objeto como perdido.
 
 ## Detector e registry
 

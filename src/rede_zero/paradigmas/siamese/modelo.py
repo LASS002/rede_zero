@@ -37,7 +37,9 @@ class ModeloSiamese(ParadigmaBase):
     def perda_fn(
         self, saidas: Mapping[str, Tensor], alvos: Mapping[str, Tensor]
     ) -> Tensor:
-        raise NotImplementedError("A perda Siamese será implementada na SCR-10.")
+        from rede_zero.treino.losses import perda_siamese
+
+        return perda_siamese(saidas, alvos)
 
     @staticmethod
     def _para_lote(imagem: np.ndarray | Tensor, device: torch.device) -> Tensor:
