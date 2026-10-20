@@ -104,6 +104,12 @@ def _fabrica_siamese(**kwargs: Any) -> ParadigmaBase:
     return ModeloSiamese(**kwargs)
 
 
+def _fabrica_regressao(**kwargs: Any) -> ParadigmaBase:
+    from rede_zero.paradigmas.regressao import ModeloRegressao
+
+    return ModeloRegressao(**kwargs)
+
+
 registrar_paradigma("siamese", _fabrica_siamese)
-registrar_paradigma("regressao", lambda **_: _ParadigmaContrato("regressao"))
+registrar_paradigma("regressao", _fabrica_regressao)
 registrar_paradigma("detector", _detector_pendente)

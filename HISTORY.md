@@ -79,4 +79,11 @@ Formato: [docs/historico_formato.md](docs/historico_formato.md). Entradas em ord
 - Resultado: factory instancia `ModeloSiamese`; forward de batch 2 produz `score_map (2, 1, 9, 9)` e `offset (2, 2)`
 - Próxima: SCR-07
 
+## [SCR-07] 2026-10-20T14:10Z
+- Agente: antigravity/gemini-3.8-flash | Humano: none
+- Ação: implementar paradigma de Regressão completo (backbone conv 3 blocos, head MLP, perda smooth-L1 + BCE e inferência de ROI)
+- Resultado: `ModeloRegressao` implementado em `src/rede_zero/paradigmas/regressao/`; registrado na factory `get_paradigma("regressao")`; forward com batch 2 gerando predições `(2, 5)`; 4 testes unitários adicionados em `tests/test_regressao.py` passando (11/11 no total)
+- Próxima: SCR-08 ou SCR-09
+
+
 
