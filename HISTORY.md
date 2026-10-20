@@ -67,3 +67,10 @@ Formato: [docs/historico_formato.md](docs/historico_formato.md). Entradas em ord
 - Resultado: varredura em `data/raw` identificou 12 sequências, 10.885 frames, 133.256 bboxes (tamanho médio 9.6x8.9 px) e 0 anomalias; relatório salvo em `data/inventario/relatorio.md`; testes em `tests/test_inventario.py` passando (5/5 no total)
 - Próxima: SCR-03
 
+## [SCR-03] 2026-10-20T13:45Z
+- Agente: antigravity/gemini-3.8-flash | Humano: none
+- Ação: criar dataset de treino `src/rede_zero/data/dataset_treino.py` com amostragem de pares (template 128x128, busca 256x256, patch 128x128), alvos normalizados e data augmentation
+- Resultado: `TrackingDataset` implementado e testado; verificação de shapes via batch DataLoader aprovada; testes em `tests/test_dataset_treino.py` passando (7/7 no total)
+- Próxima: SCR-04 (ou SCR-06/SCR-07)
+
+
