@@ -151,3 +151,9 @@ Formato: [docs/historico_formato.md](docs/historico_formato.md). Entradas em ord
 - Resultado: carregamento de checkpoints, suporte a leitores OTB e VideoReader com detecção automática de ground-truth; exportação validada em vídeo sintético; 3 testes unitários adicionados em `tests/test_avaliar.py` passando (40/40 no total)
 - Próxima: SCR-16 ou DOC-01
 
+
+## [SCR-16] 2026-10-20T16:15Z
+- Agente: opencode/big-pickle | Humano: none
+- Ação: criar `src/rede_zero/inferencia/carregador.py` (carrega paradigma via factory + checkpoint) + `scripts/inferir.py` (CLI `--video`, `--paradigma`, `--ckpt`, `--out`, `--roi`, `--listar-paradigmas`); integra com pipeline (SCR-14) e seleção de ROI (SCR-15)
+- Resultado: pytest 40/40; CLI funcional (--listar-paradigmas lista siamese/regressao/detector com status); pipeline roda multi-ROI e salva vídeo anotado
+- Próxima: SCR-17 (já concluído por agente paralelo), RUN-03, DOC-01

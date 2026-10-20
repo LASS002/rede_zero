@@ -415,5 +415,6 @@ RUN-01/02 → RUN-03 → RUN-04/05 → RUN-06 (T3) → RUN-07/08
 | SCR-11 | ✅ | 2026-10-20 | antigravity/gemini-3.8-flash | trainer: loop de treino, AdamW, AMP, checkpointing (last/best), resume e logs CSV |
 | SCR-12 | ✅ | 2026-10-20 | opencode/big-pickle | CLI `scripts/treinar.py` (--config/--resume/--paradigma/--epochs/--dry-run); dry-run 12 readers em CUDA |
 | SCR-13 | ✅ | 2026-10-20 | antigravity/gemini-3.8-flash | CLI `scripts/avaliar.py` e rotinas de avaliação de métricas (JSON/CSV) |
+| SCR-16 | ✅ | 2026-10-20 | opencode/big-pickle | `inferencia/carregador.py` + CLI `scripts/inferir.py` (`--video/--paradigma/--ckpt/--out/--roi/--listar-paradigmas`) |
 | DOC-01 | ⬜ | — | — | README base pendente (estrutura mínima já no README) |
 | (demais) | ⬜ | — | — | ver §6 |
