@@ -398,6 +398,8 @@ RUN-01/02 → RUN-03 → RUN-04/05 → RUN-06 (T3) → RUN-07/08
 | DIR-03 | ✅ | 2026-10-19 | opencode/big-pickle | uv; torch 2.14.1+cu130, CUDA OK (RTX 2060) |
 | DIR-04 | ✅ | 2026-10-19 | opencode/big-pickle | schemas reais documentados em `data/README.md`; dataset fora do repo |
 | DIR-05 | ✅ | 2026-10-19 | opencode/big-pickle | `configs/{base,siamese,regressao,detector}.yaml` com herança `_base_`; detector `status: pendente` |
+| DIR-06 | ✅ | 2026-10-19 | opencode/big-pickle | política de `runs/` em `runs/README.md`; `git check-ignore` validado |
+| SCR-01 | ✅ | 2026-10-20 | antigravity/gemini-3.8-flash | `ReaderBase`, `BBox`, `OTBReader`, `VideoReader` e testes unitários |
 | SCR-05 | ✅ | 2026-10-20 | codex/gpt-5 | contrato `ParadigmaBase`, registry e documentação dos três paradigmas |
 | DOC-01 | ⬜ | — | — | README base pendente (estrutura mínima já no README) |
 | (demais) | ⬜ | — | — | ver §6 |

@@ -34,6 +34,18 @@ Formato: [docs/historico_formato.md](docs/historico_formato.md). Entradas em ord
 - Resultado: 4 YAMLs parseados com `yaml.safe_load` OK; loader de herança fica a cargo de SCR-11
 - Próxima: DIR-06, DOC-01 ou SCR-01 (independentes)
 
+## [DIR-06] 2026-10-19T21:35Z
+- Agente: opencode/big-pickle | Humano: none
+- Ação: expandir `runs/README.md` com estrutura por experimento e política de versionamento (ckpts/métricas/vídeos)
+- Resultado: `git check-ignore` validado — `runs/**/checkpoints/` e `*.mp4` ignorados, `metrics.yaml` versionado; planilha §9 atualizada
+- Próxima: DOC-01 ou SCR-01 (independentes); DIR-07 bloqueada até SCR-14/15/16
+
+## [SCR-01] 2026-10-20T13:25Z
+- Agente: antigravity/gemini-3.8-flash | Humano: none
+- Ação: implementar leitores de dataset sob `ReaderBase` (`BBox`, `OTBReader` e `VideoReader`) e testes unitários
+- Resultado: `src/rede_zero/data/readers/{base,otb,video}.py` e `tests/test_readers.py` criados (4 testes passando; validação com dados sintéticos e dados reais em `/data/raw/`)
+- Próxima: SCR-02
+
 ## [SCR-05] 2026-10-20T13:25Z
 - Agente: codex/gpt-5 | Humano: none
 - Ação: definir `ParadigmaBase`, factory/registry e contrato dos três paradigmas
