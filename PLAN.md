@@ -397,5 +397,6 @@ RUN-01/02 → RUN-03 → RUN-04/05 → RUN-06 (T3) → RUN-07/08
 | DIR-02 | ✅ | 2026-10-19 | opencode/big-pickle | esqueleto `src/`, `scripts/`, `configs/`, `data/`, `runs/`, `tests/`, `docs/` |
 | DIR-03 | ✅ | 2026-10-19 | opencode/big-pickle | uv; torch 2.14.1+cu130, CUDA OK (RTX 2060) |
 | DIR-04 | ✅ | 2026-10-19 | opencode/big-pickle | schemas reais documentados em `data/README.md`; dataset fora do repo |
+| DIR-05 | ✅ | 2026-10-19 | opencode/big-pickle | `configs/{base,siamese,regressao,detector}.yaml` com herança `_base_`; detector `status: pendente` |
 | DOC-01 | ⬜ | — | — | README base pendente (estrutura mínima já no README) |
 | (demais) | ⬜ | — | — | ver §6 |

@@ -1,0 +1,10 @@
+# Paradigma C — Detector + associação — PENDENTE (SCR-18/RUN-09)
+_base_: base.yaml
+
+experimento: detector
+paradigma: detector
+status: pendente        # implementação não iniciada; factory lança NotImplementedError
+
+modelo: {}
+treino:
+  resume: null

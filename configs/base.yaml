@@ -1,0 +1,37 @@
+# Config base — todos os experimentos herdam deste arquivo.
+# Herança: arquivos filhos declararem `_base_: base.yaml`; o loader (SCR-11) resolve.
+
+experimento: base
+_base_: null
+
+semente: 42
+device: cuda          # se indisponível, cai para cpu automaticamente
+
+imagens:              # formas do PLAN.md §5
+  template: 128       # ROI colhida no frame 0 (Siamese)
+  busca: 256          # região de busca centrada na ROI (Siamese)
+  patch: 128          # ROI expandida x2 (Regressão)
+
+dados:
+  raiz: data/real             # ponteiros/leitores; dados brutos fora do repo
+  inventario: data/inventario/relatorio.md
+  max_objetos: 8              # sem sobreposição (pré-requisito do plano)
+  valid_frac: 0.2             # fração de sequências para validação
+
+treino:
+  epochs: 50
+  batch_size: 16
+  lr: 1.0e-3
+  optimizer: adamw
+  weight_decay: 1.0e-4
+  scheduler: cosine
+  amp: true                    # mixed precision na GPU
+  num_workers: 4
+  ckpt_dir: runs/${experimento}/checkpoints
+  log: runs/${experimento}/metrics.yaml
+  resume: null                 # caminho de ckpt ou "last"
+
+inferencia:
+  limiar_confianca: 0.5        # perda de objeto abaixo disso (Regressão)
+  atualizar_templato_em: 0     # 0 = nunca; N = a cada N frames (Siamese)
+  saida: runs/inferencia

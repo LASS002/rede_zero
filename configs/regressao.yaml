@@ -1,0 +1,13 @@
+# Paradigma B — Regressão de deslocamento da ROI — PLAN.md §5
+_base_: base.yaml
+
+experimento: regressao
+paradigma: regressao
+
+modelo:
+  canais_backbone: [32, 64, 128]         # 3 blocos Conv→BN→ReLU→MaxPool
+  saidas: [dx, dy, sw, sh]               # + score de confiança
+
+treino:
+  epochs: 50
+  lr: 5.0e-4

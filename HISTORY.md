@@ -27,3 +27,9 @@ Formato: [docs/historico_formato.md](docs/historico_formato.md). Entradas em ord
 - Resultado: Formato-A = frames+labels YOLO/txt+JSON (sem id de objeto, ~20 obj/frame, fonte part1.mp4/1511 frames); Formato-B = vídeo+CSV de tracking com Tracker ID (`object_id_<N>.csv`); PLAN.md §1.3 e §9 atualizados
 - Nota: remote do git migrado para HTTPS + `gh auth setup-git` (push normal voltou a funcionar)
 - Próxima: DIR-05 (ou DOC-01 / SCR conforme preferência do humano)
+
+## [DIR-05] 2026-10-19T21:25Z
+- Agente: opencode/big-pickle | Humano: none
+- Ação: criar `configs/base.yaml` (seed, device, imagens 128/256, treino, inferência) + `siamese.yaml` e `regressao.yaml` herdados via `_base_: base.yaml` + `detector.yaml` com `status: pendente`
+- Resultado: 4 YAMLs parseados com `yaml.safe_load` OK; loader de herança fica a cargo de SCR-11
+- Próxima: DIR-06, DOC-01 ou SCR-01 (independentes)

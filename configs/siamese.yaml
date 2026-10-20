@@ -1,0 +1,14 @@
+# Paradigma A — Siamese (template matching) — PLAN.md §5
+_base_: base.yaml
+
+experimento: siamese
+paradigma: siamese
+
+modelo:
+  canais_backbone: [32, 64, 128, 256]   # 4 blocos Conv→BN→ReLU→MaxPool
+  correlacao: depthwise                  # profundidade
+  head_offset: true                      # ramo de deslocamento do centro
+
+treino:
+  epochs: 50
+  lr: 1.0e-3
