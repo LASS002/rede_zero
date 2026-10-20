@@ -48,3 +48,8 @@ part1/
 - Não copiar dados brutos para o repo (gitignored); readers (SCR-01) receberão o path absoluto.
 - `data/inventario/` receberá o relatório de SCR-02/RUN-01.
 - Formato-JSON do projeto de label também será coberto pelo reader (colunas em px).
+- `data/sinteticos/` recebe sequências de smoke geradas por
+  `uv run python scripts/gerar_sinteticos.py`; cada pasta contém `video.mp4` e
+  `video.csv` com frame, Tracker ID, label, caixa em pixels e confiança. O gerador
+  simula fundo verde com variações de iluminação e objetos coloridos arredondados ou
+  estrelados, com IDs estáveis e até 90 frames.

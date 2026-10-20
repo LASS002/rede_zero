@@ -131,3 +131,9 @@ Formato: [docs/historico_formato.md](docs/historico_formato.md). Entradas em ord
 - Resultado: suporte a herança de configs com `_base_`; salvamento e carregamento de checkpoints (`last.pt`, `best.pt`); logging em `train_log.csv`; 3 testes unitários adicionados em `tests/test_trainer.py` passando (37/37 no total)
 - Próxima: SCR-12 ou SCR-13
 
+## [SCR-04] 2026-10-20T18:18Z
+- Agente: codex/gpt-6 | Humano: lennin — descreveu aparência, movimento e duração dos vídeos reais
+- Ação: criar gerador sintético de smoke inspirado nos objetos e fundos descritos
+- Resultado: módulo `data/sintetico.py` e CLI `scripts/gerar_sinteticos.py`; MP4 e CSV com IDs estáveis, fundo verde sombreado e objetos multicoloridos arredondados/estrelados; máximo de 8 objetos e 90 frames
+- Próxima: RUN-02
+

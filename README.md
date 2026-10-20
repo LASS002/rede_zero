@@ -19,6 +19,8 @@ configs/         # YAML por paradigma · data/ (brutos, gitignore) · runs/ (ckp
   separado (`scripts/inferir.py`) que importa a rede, nunca o código de treino.
 - Pipeline: `rede_zero.inferencia.executar_pipeline()` rastreia até oito ROIs de forma
   independente, sem GUI, e registra objetos removidos por baixa confiança.
+- Smoke de dados: `uv run python scripts/gerar_sinteticos.py --output data/sinteticos/exp1`
+  gera até 90 frames anotados com objetos coloridos sobre fundo verde variável.
 - Paradigmas: o registry `rede_zero.paradigmas.get_paradigma()` já define os contratos
   `siamese`, `regressao` e `detector`; Siamese já possui backbone, correlação e offset,
   Regressão já possui backbone e MLP, e o detector permanece pendente. Perdas e métricas

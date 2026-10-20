@@ -402,6 +402,7 @@ RUN-01/02 → RUN-03 → RUN-04/05 → RUN-06 (T3) → RUN-07/08
 | SCR-01 | ✅ | 2026-10-20 | antigravity/gemini-3.8-flash | `ReaderBase`, `BBox`, `OTBReader`, `VideoReader` e testes unitários |
 | SCR-02 | ✅ | 2026-10-20 | antigravity/gemini-3.8-flash | `data/inventario.py`, `scripts/inventario_dataset.py`, testes e relatório |
 | SCR-03 | ✅ | 2026-10-20 | antigravity/gemini-3.8-flash | `data/dataset_treino.py` (amostragem para Siamese e Regressão + augment) |
+| SCR-04 | ✅ | 2026-10-20 | codex/gpt-6 | gerador determinístico pixel-art com fundo verde variável e CSV de tracking |
 | SCR-05 | ✅ | 2026-10-20 | codex/gpt-5 | contrato `ParadigmaBase`, registry e documentação dos três paradigmas |
 | SCR-08 | ✅ | 2026-10-20 | opencode/big-pickle | stub `paradigmas/detector/` (docstring do contrato, classe `Detector`, factory pendente → SCR-18) |
 | SCR-15 | ✅ | 2026-10-20 | opencode/big-pickle | `inferencia/selecao_roi.py` (GUI OpenCV, ≤8 ROIs) + testes com GUI simulada |
