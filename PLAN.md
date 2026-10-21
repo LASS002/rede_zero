@@ -248,6 +248,7 @@ Passos: (1) ler `HISTORY.md` e notar dores registradas nas tasks SCR-14…16;
 | SCR-17 | T2 | SCR-14 | `tests/test_pipeline.py` (pipeline c/ modelo fake, 2 frames) |
 | SCR-18 | **T3** ⏸️ | SCR-08 | implementação do Detector + associação |
 | SCR-19 | **T3** ⏸️ opc. | SCR-06 | validação NumPy-puro do forward/backward do bloco conv |
+| SCR-20 | T2 | SCR-16 | GUI web (Streamlit/Gradio) para anotação de bboxes em frames de vídeo: carrega vídeo, navegação frame-a-frame, desenho de até 8 bboxes por frame, exporta CSV formato-B (Frame, Tracker ID, Label, X_min, Y_min, X_max, Y_max, Confidence); integra com `scripts/inferir.py` via `--roi` |
 
 **SCR-01** — *Leitores de dataset.*
 Contrato `ReaderBase`: `n_frames`, `get_frame(i) -> np.ndarray`, `get_gt(i) -> list[BBox]`.
@@ -327,6 +328,8 @@ carregador monta o paradigma via factory e carrega o ckpt. Verificação:
 
 **SCR-19** ⏸️ *(T3, opcional)* — *NumPy-puro "do zero"*: reimplementar forward/backward
 do bloco conv e comparar gradientes com autograd (tolerância 1e-5).
+
+**SCR-20** *(T2)* — *GUI web para anotação de bboxes*. Passos: app Streamlit/Gradio que (1) carrega vídeo local, (2) navegação frame-a-frame (slider/input), (3) canvas para desenhar até 8 bboxes/frame (clique-arrasta), (4) atribui Tracker ID por objeto, (5) exporta CSV no formato-B compatível com `VideoReader`; CLI opcional `scripts/anotar.py --video X --out Y.csv`. Verificação: anota 2 frames do vídeo sintético, abre CSV no `inventario_dataset.py`.
 
 ### 6.3 Fase RUN — Execução (treino / avaliação / inferência)
 
@@ -416,5 +419,6 @@ RUN-01/02 → RUN-03 → RUN-04/05 → RUN-06 (T3) → RUN-07/08
 | SCR-12 | ✅ | 2026-10-20 | opencode/big-pickle | CLI `scripts/treinar.py` (--config/--resume/--paradigma/--epochs/--dry-run); dry-run 12 readers em CUDA |
 | SCR-13 | ✅ | 2026-10-20 | antigravity/gemini-3.8-flash | CLI `scripts/avaliar.py` e rotinas de avaliação de métricas (JSON/CSV) |
 | SCR-16 | ✅ | 2026-10-20 | opencode/big-pickle | `inferencia/carregador.py` + CLI `scripts/inferir.py` (`--video/--paradigma/--ckpt/--out/--roi/--listar-paradigmas`) |
+| SCR-20 | ⬜ | — | — | GUI web (Streamlit/Gradio) para anotação de bboxes em vídeo |
 | DOC-01 | ⬜ | — | — | README base pendente (estrutura mínima já no README) |
 | (demais) | ⬜ | — | — | ver §6 |
