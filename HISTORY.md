@@ -157,3 +157,21 @@ Formato: [docs/historico_formato.md](docs/historico_formato.md). Entradas em ord
 - Ação: criar `src/rede_zero/inferencia/carregador.py` (carrega paradigma via factory + checkpoint) + `scripts/inferir.py` (CLI `--video`, `--paradigma`, `--ckpt`, `--out`, `--roi`, `--listar-paradigmas`); integra com pipeline (SCR-14) e seleção de ROI (SCR-15)
 - Resultado: pytest 40/40; CLI funcional (--listar-paradigmas lista siamese/regressao/detector com status); pipeline roda multi-ROI e salva vídeo anotado
 - Próxima: SCR-17 (já concluído por agente paralelo), RUN-03, DOC-01
+
+## [RUN-02] 2026-10-21T18:20Z
+- Agente: opencode/nemotron-3-ultra-free | Humano: none
+- Ação: gerar vídeo sintético + CSV de tracking via `scripts/gerar_sinteticos.py`
+- Resultado: `data/sinteticos/exp1/video.mp4` (90 frames, 3 objetos) + `video.csv` com Tracker IDs estáveis; formato compatível com Formato-B (vídeo + CSV)
+- Próxima: RUN-03
+
+## [RUN-03] 2026-10-21T18:45Z
+- Agente: opencode/nemotron-3-ultra-free | Humano: none
+- Ação: smoke test + overfit em 10 amostras (GPU RTX 2060) para Siamese e Regressão
+- Resultado: Siamese loss 370→72 (~80% queda, loss absoluto alto); Regressão loss 0.34→0.03 (~91% queda, excelente overfit); configs `smoke.yaml` e `smoke_regressao.yaml` criados; logs em `runs/smoke/train_log.csv` e `runs/smoke_regressao/train_log.csv`
+- Próxima: RUN-04
+
+## [RUN-04] 2026-10-21T20:00Z
+- Agente: opencode/nemotron-3-ultra-free | Humano: none
+- Ação: treino completo Siamese (50 epochs, 1000 amostras, 14 readers, batch=16, AMP, dataset real)
+- Resultado: loss 121.9 → ~1.0 (melhor 0.955 na epoch 48); checkpoints em `runs/base/checkpoints/{last,best}.pt`; log em `runs/siamese/train_log.csv`; bug conhecido: `${experimento}` resolveu para "base" em vez de "siamese"
+- Próxima: RUN-05
