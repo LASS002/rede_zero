@@ -175,3 +175,9 @@ Formato: [docs/historico_formato.md](docs/historico_formato.md). Entradas em ord
 - Ação: treino completo Siamese (50 epochs, 1000 amostras, 14 readers, batch=16, AMP, dataset real)
 - Resultado: loss 121.9 → ~1.0 (melhor 0.955 na epoch 48); checkpoints em `runs/base/checkpoints/{last,best}.pt`; log em `runs/siamese/train_log.csv`; bug conhecido: `${experimento}` resolveu para "base" em vez de "siamese"
 - Próxima: RUN-05
+
+## [RUN-07] 2026-10-21T22:30Z
+- Agente: opencode/nemotron-3-ultra-free | Humano: none
+- Ação: inferência demo com Siamese em vídeo sintético (90 frames, 3 objetos)
+- Resultado: pipeline processou 90 frames, 1 ROI rastreada sem perdas; vídeo anotado gerado em `runs/inferencia/teste_sintetico.mp4`; relatório em `runs/inferencia/relatorio_run07.md`; vídeo real (DJI_0016.MP4, 3020 frames) excede timeout interativo
+- Próxima: RUN-08 ou RUN-06
